@@ -1,0 +1,41 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:tns="http://www.gsim/gsim-producing-ws"
+targetNamespace="http://www.gsim/gsim-producing-ws"
+elementFormDefault="qualified">
+<xs:element name="getVendorMessageRequest">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="vendormessge" type="tns:VendorMessge" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+<xs:element name="getAcknowledgementResponse">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="ackStatus" type="tns:AckStatus" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+<xs:complexType name="VendorMessge">
+	<xs:sequence>
+		<xs:element name="id" type="xs:int" />
+		<xs:element name="productName" type="xs:string" />
+		<xs:element name="vendorName" type="xs:string" />
+		<xs:element name="vendorEmail" type="xs:string" />
+		<xs:element name="stockCount" type="xs:long" />
+		<xs:element name="pricePerBox" type="xs:float" />
+		<xs:element name="stockPrice" type="xs:float" />
+		<xs:element name="currency" type="xs:string" />
+		<xs:element name="tax" type="xs:float" />
+		<xs:element name="finalAmount" type="xs:float" />
+	</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="AckStatus">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="ACK"/>
+		<xs:enumeration value="APPROVED"/>
+		<xs:enumeration value="DECLINED"/>
+		<xs:enumeration value="PENDING"/>
+	</xs:restriction>
+</xs:simpleType>
+</xs:schema>

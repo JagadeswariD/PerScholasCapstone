@@ -1,0 +1,35 @@
+ .navColumn {
+  background-color: #444680 !important;
+  color: #FFFFFF !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+}
+
+ .nav-link.active {
+
+}
+.cardHeader{
+background-color: #444680 !important;
+  color: #FFFFFF !important;
+  border-bottom: solid 4px white !important;
+}
+
+.formButton{
+  background-color: #444680 !important;
+    border-color:  #444680 !important;
+    color: #FFFFFF !important;
+   }
+
+   .displayGrid {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     grid-gap: 1rem;
+   }
+
+   .gridItem {
+     display: inline;
+     height: 100px;
+     width: auto;
+   }
+
