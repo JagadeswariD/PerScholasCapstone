@@ -60,7 +60,7 @@ public class ProductTrackerSchedulerService {
 				pdList.forEach((p)->{
 					switch(alertLevel) {
 					
-					
+					//stock count less than limit+50% of limit
 					case "MODERATE": {
 						
 						if((p.getProductStockCount()<(p.getProductThresholdValue()+(p.getProductThresholdValue()/2) ))) 
@@ -85,6 +85,7 @@ public class ProductTrackerSchedulerService {
 							}
 						}
 					}
+					//Irrespective stock count vs limit value
 					case "NORMAL":{
 						
 							ProductTracker productTracker = new ProductTracker(p.getId(),p.getProduct(),
@@ -106,7 +107,7 @@ public class ProductTrackerSchedulerService {
 								log.error(e.getMessage());
 							}
 						
-					}
+					}//HIGH priority when stock count is equal or less than limit
 					default:
 					{
 						if(p.getProductStockCount()<=p.getProductThresholdValue()) 
