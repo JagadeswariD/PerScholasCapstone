@@ -16,7 +16,7 @@ Technical Perspective:
 	1. Spring Security using JWT Token for user authentication and authorization.
 	2. @RestControllers are configured with endpoints to handle incoming request from front-end.
 	3. @Service class used to handle business logic, which includes CRUD operations based on business scenario.
-	4. @EnableScheduling - Scheduler used to check ProductDetail entity for stock count against threshold limit. Based on Level of alert set in properties file email will be 		triggered.
+	4. @EnableScheduling - Scheduler used to check ProductDetail entity for stock count against threshold limit. Based on Level of alert set in properties file email will be triggered.
 	5. Multi-part file upload is implemented to upload image zip files to servers local dir. A scheduler is in place to extract the uploaded zip file and move them to destination dir.
 	6. @EnableWs - SOAP Webservice is used to receive vendor messages from vendors on new stock information.
 	7. MapStruct - to map DTO and entity objects
