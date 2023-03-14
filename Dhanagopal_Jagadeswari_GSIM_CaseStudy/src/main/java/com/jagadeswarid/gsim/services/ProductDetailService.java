@@ -62,22 +62,22 @@ public class ProductDetailService {
 		ProductDetail productDetail = repository.findById(id).get();
 		return mapper.toProductDetailDto(productDetail);
 	}
-
+	
 	@Transactional
 	public ProductDetailDTO updateProductDetail(Long id, ProductDetailDTO productDetailDto) {
 		// TODO Auto-generated method stub
-		ProductDetail productDetail = mapper.toProductDetailEntity(productDetailDto);
+		ProductDetail productDetailsToBeUpdated = repository.findById(id).get();
 		Product product = productRepository.findById(productDetailDto.getProductid()).orElseThrow(() -> new ResourceNotFoundException("Product does not exist with id :" + productDetailDto.getProductid()));
 		Category category = categoryRepository.findById(productDetailDto.getCategoryid()).orElseThrow(() -> new ResourceNotFoundException("Category does not exist with id :" + productDetailDto.getCategoryid()));
 		Vendor vendor = vendorRepository.findById(productDetailDto.getVendorid()).orElseThrow(() -> new ResourceNotFoundException("Vendor does not exist with id :" + productDetailDto.getVendorid()));
-		productDetail.setCategory(category);
-		productDetail.setProduct(product);
-		productDetail.setVendor(vendor);
-		productDetail.setProductStockCount(productDetailDto.getProductStockCount());
-		productDetail.setProductThresholdValue(productDetailDto.getProductThresholdValue());
-		productDetail.setModifiedDate(Instant.now());
+		productDetailsToBeUpdated.setCategory(category);
+		productDetailsToBeUpdated.setProduct(product);
+		productDetailsToBeUpdated.setVendor(vendor);
+		productDetailsToBeUpdated.setProductStockCount(productDetailDto.getProductStockCount());
+		productDetailsToBeUpdated.setProductThresholdValue(productDetailDto.getProductThresholdValue());
+		productDetailsToBeUpdated.setModifiedDate(Instant.now());
 		
-		return mapper.toProductDetailDto(repository.save(productDetail));
+		return mapper.toProductDetailDto(repository.save(productDetailsToBeUpdated));
 		
 	}
 

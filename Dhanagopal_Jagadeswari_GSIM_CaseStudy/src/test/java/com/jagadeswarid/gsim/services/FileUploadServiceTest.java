@@ -31,7 +31,7 @@ public class FileUploadServiceTest {
 	@BeforeEach
     public void setup(){
 		imageFileDetail = new ImageFileDetail(1L, "Soda.png", "C:\\Users\\djesw\\Desktop\\Beverages", Instant.now());
-                
+    
     }
 	 // JUnit test for getAllCategories method 
 		@DisplayName("JUnit test for getAllCategories method")
